@@ -36,3 +36,8 @@ resource "azurerm_storage_account" "main" {
     project     = var.project_name
   }
 }
+resource "azurerm_storage_container" "resumes" {
+  name                  = "resumes"
+  storage_account_name  = azurerm_storage_account.main.name
+  container_access_type = "private"
+}
